@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>
+  </title>
+</head>
+<body>
+<form (submit) = "addTask($event)">
+  <table>
+    <tr>
+      <td>
+        <input type='text' [(ngModel)]="title" name="title" id='utask'>
+      </td>
+    </tr>
+    <tr>
+      <div *ngFor = " let task of tasks">
+      <td><input type = 'checkbox' [checked]='task.isDone' (click)='updateStatus(task)' id = 'ucheck'></td>
+      <td> {{task.title}} </td>
+      <td>
+        <input type='button' (click)="deleteTask(task._id)" value='delete'>
+      </td>
+    </div>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
